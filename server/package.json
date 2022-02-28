@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=development nodemon ./bin/www",
+    "wstart": "SET NODE_ENV=development nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "^4.3.3",
+    "dotenv-flow": "^3.2.0",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0",
+    "winston": "^3.6.0",
+    "winston-daily-rotate-file": "^4.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
