@@ -4,7 +4,8 @@
   "description": "example code",
   "scripts": {
     "sstart": "cd server && yarn start",
-    "cstart": "cd client && yarn start"
+    "cstart": "cd client && yarn start",
+    "create_db": "cd server && sequelize db:create"
   },
   "author": "lordreign79@gmail.com",
   "license": "MIT",
