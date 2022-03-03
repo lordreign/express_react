@@ -1,3 +1,4 @@
+const { validationResult } = require('express-validator');
 const logger = require('../config/winston');
 const boardService = require('../services/boards');
 const respUtil = require('../util/respUtil');
@@ -37,6 +38,11 @@ exports.show = async (req, res) => {
 
 // 생성
 exports.create = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json(respUtil.makeResponse({ success: false, message: '필수 항목 존재 안함' }));
+  }
+
   const { title, content } = req.body;
   const result = await boardService.create({ title, content });
   res.json(respUtil.makeResponse(result));
@@ -44,6 +50,11 @@ exports.create = async (req, res) => {
 
 // 수정
 exports.update = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json(respUtil.makeResponse({ success: false, message: '필수 항목 존재 안함' }));
+  }
+
   const { id: boardId } = req.params;
   const { id, title, content } = req.body;
   if (boardId === id.toString()) {

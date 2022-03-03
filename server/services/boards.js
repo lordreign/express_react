@@ -24,7 +24,6 @@ exports.getItemList = async ({ title, page = 1, pageSize = 20, sort = 'id', sort
 exports.getItem = async ({ id }) => await models.board.findOne({ where: { id } });
 
 exports.create = async ({ title, content }) => {
-  if (!title || !content) return { success: false, message: '필수 항목 존재 안함' };
   try {
     // transaction 처리 예제
     const result = await sequelize.transaction(async (t) => {
@@ -39,7 +38,6 @@ exports.create = async ({ title, content }) => {
 };
 
 exports.update = async ({ id, title, content }) => {
-  if (!id || !title || !content) return { success: false, message: '필수 항목 존재 안함' };
   try {
     // transaction 처리 예제
     await sequelize.transaction(async (t) => {
