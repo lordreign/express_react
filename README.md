@@ -25,3 +25,18 @@ yarn sstart   >>  server 실행
 yarn cstart   >>  react 실행
 yarn create_db   >>  db 새성 실행
 ```
+
+### test 코드 예시
+```
+실행: yarn test
+코드:
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+```
