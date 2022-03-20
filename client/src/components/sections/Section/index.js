@@ -1,25 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Container, Wrapper} from './styled';
+import { Container, Wrapper } from './styled';
 
 function Section(props) {
-    const {
-        className,
-        children,
-    } = props;
-    
-    return (
-        <Container className={ className }>
-            <Wrapper>
-                { children }
-            </Wrapper>
-        </Container>
-    );
+  const {
+    className,
+    children,
+  } = props;
+
+  return (
+    <Container className={className}>
+      <Wrapper>
+        { children }
+      </Wrapper>
+    </Container>
+  );
 }
 
 Section.propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node,
-}
+  className: PropTypes.string,
+  children: PropTypes.node,
+};
+
+Section.defaultProps = {
+  className: '',
+  children: '',
+};
 
 export default Section;

@@ -7,3 +7,7 @@ export const Container = styled.div`
   width: 240px;
   background-color: lightgreen;
 `;
+
+export default {
+  Container,
+};

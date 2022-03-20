@@ -1,7 +1,7 @@
 export default function New() {
-    return (
-        <>
-            test new
-        </>
-    )
-};
+  return (
+    <>
+      test new
+    </>
+  );
+}

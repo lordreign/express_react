@@ -1,21 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Container} from './styled';
+import { Container } from './styled';
 
 function Header(props) {
-    const {
-        className,
-    } = props;
+  const {
+    className,
+  } = props;
 
-    return (
-        <Container className={ className }>
-            Header
-        </Container>
-    );
+  return (
+    <Container className={className}>
+      Header
+    </Container>
+  );
 }
 
 Header.propTypes = {
-    className: PropTypes.string,
-}
+  className: PropTypes.string,
+};
+
+Header.defaultProps = {
+  className: '',
+};
 
 export default Header;

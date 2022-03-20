@@ -4,3 +4,7 @@ export const Container = styled.div`
   height: 56px;
   background-color: coral;
 `;
+
+export default {
+  Container,
+};

@@ -4,8 +4,8 @@ import BoardEdit from './boards/Edit';
 import BoardNew from './boards/New';
 
 export {
-    BoardIndex,
-    BoardShow,
-    BoardEdit,
-    BoardNew,
-}
+  BoardIndex,
+  BoardShow,
+  BoardEdit,
+  BoardNew,
+};

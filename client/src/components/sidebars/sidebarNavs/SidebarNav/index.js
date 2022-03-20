@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {List} from './styled';
+import { List } from './styled';
 
 import SideBarNavItem from '../sidebarNavItems/SidebarNavItem';
 
-const SideBarNav = props => {
+function SideBarNav(props) {
   const {
     className,
     items,
   } = props;
-  
+
   return (
-    <List className={ className }>
+    <List className={className}>
       {
-        items && items.map((opt, idx)=>(
-          <SideBarNavItem key={ idx } { ...opt }/>
+        items && items.map((opt) => (
+          <SideBarNavItem key={opt.label} {...opt} />
         ))
       }
     </List>
@@ -24,6 +24,11 @@ const SideBarNav = props => {
 SideBarNav.propTypes = {
   className: PropTypes.string,
   items: PropTypes.array,
-}
+};
+
+SideBarNav.defaultProps = {
+  className: '',
+  items: [],
+};
 
 export default SideBarNav;
