@@ -4,26 +4,27 @@ import {ListItem} from './styled';
 
 import { NavLink } from 'react-router-dom';
 
+
 const SideBarNavItem = props => {
-    const {
-      className,
-      label,
-      href,
-    } = props;
+  const {
+    className,
+    label,
+    href,
+  } = props;
   
-    return (
-      <ListItem className={ className }>
-        <NavLink to={ href }>
-          { label }
-        </NavLink>
-      </ListItem>
-    );
+  return (
+    <ListItem className={ className }>
+      <NavLink to={ href }>
+        { label }
+      </NavLink>
+    </ListItem>
+  );
 }
   
 SideBarNavItem.propTypes = {
-    className: PropTypes.string,
-    label: PropTypes.string,
-    href: PropTypes.string,
+  className: PropTypes.string,
+  label: PropTypes.string,
+  href: PropTypes.string,
 }
   
 

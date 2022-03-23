@@ -2,12 +2,19 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
+const cors = require('cors');
 const winston = require('./config/winston');
 const respUtil = require('./util/respUtil');
 const routes = require('./routes/index');
 const { sequelize } = require('./models');
 
 const app = express();
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(cors({
+    origin: '*',
+  }));
+}
 
 app.use(logger('combined', { stream: winston.stream }));
 app.use(express.json());
@@ -19,8 +26,9 @@ app.use(bodyParser.json());
 // interceptor
 app.use((req, res, next) => {
   // winston.info(`Request Headers: ${JSON.stringify(req.headers)}`);
+  // winston.info(`ddd: ${req}`);
   if (req.headers['content-type'] && req.headers['content-type'].includes('application/json')) {
-    // winston.info(`Request Body: ${JSON.stringify(req.body)}`);
+    winston.info(`Request Body: ${JSON.stringify(req.body)}`);
     next();
   } else {
     winston.error('[415] Unsupported Media Type');

@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import * as views from './views';
+// import ErrorBoundary from './components/errors/ErrorBoundary';
 
 // layouts
 import MainLayout from './layouts/Main';

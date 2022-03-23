@@ -8,8 +8,8 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
-    'airbnb',
+    // 'plugin:react/recommended',
+    // 'airbnb',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -19,7 +19,8 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
-    'react',
+    // 'react',
+    'react-hooks',
   ],
   rules: {
     indent: ['error', indentSpace, { ArrayExpression: 1, MemberExpression: 1, ObjectExpression: 1 }],
@@ -35,16 +36,23 @@ module.exports = {
     'prefer-destructuring': ['error', { object: false, array: false }],
     'import/extensions': 'off',
     'linebreak-style': 0,
-    'import/no-unresolved': ['error', { caseSensitive: false, ignore: ['@'] }],
+    // 'import/no-unresolved': ['error', { caseSensitive: false, ignore: ['@'] }],
     'array-element-newline': ['error', {
       ArrayExpression: 'consistent',
       ArrayPattern: { minItems: 1 },
     }],
     'import/no-dynamic-require': 'off',
     'node/no-unsupported-features/es-syntax': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/forbid-prop-types': 'off',
+    // 'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    // 'react/react-in-jsx-scope': 'off',
+    // 'react/jsx-props-no-spreading': 'off',
+    // 'react/forbid-prop-types': 'off',
+    // 'react-hooks/rules-of-hooks': 'error',
+    // 'react-hooks/exhaustive-deps': [
+    //   'warn',
+    //   {
+    //     additionalHooks: 'useRecoilCallback',
+    //   },
+    // ],
   },
 };

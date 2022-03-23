@@ -8,7 +8,13 @@ exports.index = async (req, res) => {
   const { title, page, pageSize, sort, sortDesc } = req.query;
 
   try {
-    const boards = await boardService.getItemList({ title, page, pageSize, sort, sortDesc });
+    const boards = await boardService.getItemList({
+      title,
+      page: page ? parseInt(page, 10) : null,
+      pageSize: pageSize ? parseInt(pageSize, 10) : null,
+      sort,
+      sortDesc,
+    });
     res.json(respUtil.makeResponse({
       success: true,
       data: {
