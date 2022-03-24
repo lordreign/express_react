@@ -13,9 +13,6 @@ server > 기본적인 crud는 완료
 ```
 server(express)
   1. express validator 적용 해보기
-
-client(react)
-  1. 목록/상세/등록/수정/삭제 개발하기
 ```
 
 ### 명령어
