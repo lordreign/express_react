@@ -13,12 +13,6 @@ export default function Edit() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    boardsAction.getBoard({ id });
-    return boardsAction.resetBoard;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const validationSchema = Yup.object().shape({
     title: Yup.string()
       .required('title 적어라'),
@@ -26,8 +20,21 @@ export default function Edit() {
       .required('content 적어라'),
   });
   const formOptions = { resolver: yupResolver(validationSchema) };
-  const { register, handleSubmit, formState } = useForm(formOptions);
+  const { register, handleSubmit, reset, formState } = useForm(formOptions);
   const { errors, isSubmitting } = formState;
+
+  useEffect(() => {
+    boardsAction.getBoard({ id });
+    return boardsAction.resetBoard;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (board) {
+      reset(board);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [board]);
 
   async function onSubmit(data) {
     const json = await boardsAction.updateBoard({ id, title: data.title, content: data.content });
