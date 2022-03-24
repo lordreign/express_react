@@ -7,6 +7,10 @@
 mysql은 server > config > config.json 파일 확인하여 정보 수정 필요
 server port 설정 변경은 server > .env.development 파일에서 수정
 server > 기본적인 crud는 완료
+
+특이사항
+- recoil 적용
+- react-hook-form, yup, @hookform/resolvers 적용
 ```
 
 ### TODO
