@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 app.use((req, res, next) => {
   // winston.info(`Request Headers: ${JSON.stringify(req.headers)}`);
   // winston.info(`method: ${req.method}`);
-  if (req.method === 'GET' || (req.headers['content-type'] && req.headers['content-type'].includes('application/json'))) {
+  if (['GET', 'DELETE'].includes(req.method) || (req.headers['content-type'] && req.headers['content-type'].includes('application/json'))) {
     winston.info(`Request Body: ${JSON.stringify(req.body)}`);
     next();
   } else {

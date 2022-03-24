@@ -7,5 +7,5 @@ export const boardsAtom = atom({
 
 export const boardAtom = atom({
   key: 'views/boards/item',
-  default: {},
+  default: null,
 });
