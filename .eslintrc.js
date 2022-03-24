@@ -8,13 +8,21 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:react/recommended',
     'plugin:node/recommended',
     'airbnb',
   ],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     ecmaVersion: 13,
     sourceType: 'module',
   },
+  plugins: [
+    'react',
+    'react-hooks',
+  ],
   rules: {
     indent: ['error', indentSpace, { ArrayExpression: 1, MemberExpression: 1, ObjectExpression: 1 }],
     'max-len': 'off',
@@ -36,5 +44,19 @@ module.exports = {
     }],
     'import/no-dynamic-require': 'off',
     'node/no-unsupported-features/es-syntax': 'off',
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/forbid-prop-types': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': [
+      'warn',
+      {
+        additionalHooks: 'useRecoilCallback',
+      },
+    ],
+    'node/no-extraneous-import': ['error', {
+      allowModules: ['prop-types'],
+    }],
   },
 };
