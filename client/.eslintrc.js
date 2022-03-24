@@ -4,13 +4,11 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:node/recommended',
-    'airbnb',
+    'airbnb-base',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -55,8 +53,5 @@ module.exports = {
         additionalHooks: 'useRecoilCallback',
       },
     ],
-    'node/no-extraneous-import': ['error', {
-      allowModules: ['prop-types'],
-    }],
   },
 };

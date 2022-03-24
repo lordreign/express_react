@@ -16,7 +16,6 @@ function useBoardsAction() {
         sort,
         sortDesc,
       },
-      data: {},
     });
 
     const { data: { boards } } = res.data;

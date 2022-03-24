@@ -10,11 +10,14 @@ const { sequelize } = require('./models');
 
 const app = express();
 
+let origin = [];
 if (process.env.NODE_ENV === 'development') {
-  app.use(cors({
-    origin: '*',
-  }));
+  origin = '*';
 }
+
+app.use(cors({
+  origin,
+}));
 
 app.use(logger('combined', { stream: winston.stream }));
 app.use(express.json());
@@ -26,8 +29,8 @@ app.use(bodyParser.json());
 // interceptor
 app.use((req, res, next) => {
   // winston.info(`Request Headers: ${JSON.stringify(req.headers)}`);
-  // winston.info(`ddd: ${req}`);
-  if (req.headers['content-type'] && req.headers['content-type'].includes('application/json')) {
+  // winston.info(`method: ${req.method}`);
+  if (req.method === 'GET' || (req.headers['content-type'] && req.headers['content-type'].includes('application/json'))) {
     winston.info(`Request Body: ${JSON.stringify(req.body)}`);
     next();
   } else {

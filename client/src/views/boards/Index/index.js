@@ -10,6 +10,7 @@ export default function Index() {
   useEffect(() => {
     boardsAction.getBoards({});
     return boardsAction.resetBoards;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -23,7 +24,7 @@ export default function Index() {
       </thead>
       <tbody>
         {boards?.map((board) => (
-          <tr>
+          <tr key={board.id}>
             <td>{board.id}</td>
             <td>{board.title}</td>
             <td>{board.content}</td>
